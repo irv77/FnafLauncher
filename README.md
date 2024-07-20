@@ -1,4 +1,4 @@
-# <img src=".github/assets/logo.png" alt="Launcher Logo" align="right" width="237.5px"> Five Nights at Freddy's Launcher
+# <img src=".github/assets/logo.png" alt="Launcher Logo" align="right" width="159px"> Five Nights at Freddy's Launcher
  A custom made fnaf launcher of the core games!<br>
  Huge credits to u/Whole-Ad-1768 for concept art and logos!
 
