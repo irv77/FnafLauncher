@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Five Nights at Freddy's Launcher</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" />
+    <!--Discord-->
+    <meta content="Five Nights at Freddy's Launcher" property="og:title">
+    <meta content="A custom made fnaf launcher of the core games!" property="og:description">
+    <meta content="https://irv77.github.io/FnafLauncher/" property="og:url">
+    <meta content="https://irv77.github.io/FnafLauncher/images/logo.png" property="og:image">
+    <meta content="#8a4314" data-react-helmet="true" name="theme-color">
+</head>
+
+<body>
+    <div class="services" id="services">
+        <section class="content-section">
+            <section class="carousel-container">
+                <section class="cards-section">
+                    <div name="FNAF 1" class="game-card game1" onclick="changeGameSelected(0)">
+                        <div class="card-character"></div>
+                        <div class="card-fade"></div>
+                        <div class="card-darkness"></div>
+                        <div class="card-title"><img src="images/fnaf1-title.png" style="width: 36vh;"></div>
+                        <a href="fnaf1/"><button class="play-button" role="button">PLAY</button></a>
+                    </div>
+
+                    <div name="FNAF 2" class="game-card game2" onclick="changeGameSelected(1)">
+                        <div class="card-character"></div>
+                        <div class="card-fade"></div>
+                        <div class="card-darkness"></div>
+                        <div class="card-title"><img src="images/fnaf2-title.png" style="width: 36vh;"></div>
+                        <a href="fnaf2/"><button class="play-button" role="button">PLAY</button></a>
+                    </div>
+
+                    <div name="FNAF 3" class="game-card game3" onclick="changeGameSelected(2)">
+                        <div class="card-character"></div>
+                        <div class="card-fade"></div>
+                        <div class="card-darkness"></div>
+                        <div class="card-title"><img src="images/fnaf3-title.png" style="width: 36vh;"></div>
+                        <a href="fnaf3/"><button class="play-button" role="button">PLAY</button></a>
+                    </div>
+
+                    <div name="FNAF 4" class="game-card game4" onclick="changeGameSelected(3)">
+                        <div class="card-character"></div>
+                        <div class="card-fade"></div>
+                        <div class="card-darkness"></div>
+                        <div class="card-title"><img src="images/fnaf4-title.png" style="width: 36vh;"></div>
+                        <a href="fnaf4/"><button class="play-button" role="button">PLAY</button></a>
+                    </div>
+
+                    <div name="FNAF SL" class="game-card game5" onclick="changeGameSelected(4)">
+                        <div class="card-character"></div>
+                        <div class="card-fade"></div>
+                        <div class="card-darkness"></div>
+                        <div class="card-title" style="bottom: -1vh;"><img src="images/fnaf5-title.png"
+                                style="width: 36vh;"></div>
+                        <a href="fnafsl/"><button class="play-button" role="button">PLAY</button></a>
+                    </div>
+
+                    <div name="FNAF PS " class="game-card game6" onclick="changeGameSelected(5)">
+                        <div class="card-character"></div>
+                        <div class="card-fade"></div>
+                        <div class="card-darkness"></div>
+                        <div class="card-title"><img src="images/fnaf6-title.png" style="width: 36vh;"></div>
+                        <a href="fnafps/"><button class="play-button" role="button">PLAY</button></a>
+                    </div>
+
+                    <div name="FNAF W" class="game-card game7" onclick="changeGameSelected(6)">
+                        <div class="card-character"></div>
+                        <div class="card-fade"></div>
+                        <div class="card-darkness"></div>
+                        <div class="card-title"><img src="images/fnaf7-title.png" style="width: 36vh;"></div>
+                        <a href="fnafw/"><button class="play-button" role="button">PLAY</button></a>
+                    </div>
+
+                    <div name="FNAF UCN" class="game-card game8" onclick="changeGameSelected(7)">
+                        <div class="card-character"></div>
+                        <div class="card-fade"></div>
+                        <div class="card-darkness"></div>
+                        <div class="card-title"><img src="images/fnaf8-title.png" style="width: 36vh;"></div>
+                        <a href="fnafucn/"><button class="play-button" role="button">PLAY</button></a>
+                    </div>
+                </section>
+            </section>
+        </section>
+    </div>
+    <div class="launcher-title"><img src="images/launcher-title.png" style="width: 45vw;"></div>
+    <div class="icons">
+        <img class="music" src="images/icons/music.svg" onclick="musicOption()">
+        <img class="sound" src="images/icons/sound.svg" onclick="soundOption()">
+    </div>
+    <div><img src="images/vignette.png" class="vignette"></div>
+    <script src="script.js"></script>
+</body>
+<!--Made by irv77-->
+
+</html>

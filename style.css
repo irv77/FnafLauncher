@@ -1,0 +1,265 @@
+html {
+    display: block;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+    position: relative;
+    background-color: black;
+    background-image: url(images/background.gif), url(images/background.png);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    height: 100%;
+}
+
+a,
+button {
+    text-decoration: none;
+}
+
+button {
+    font-family: sans-serif;
+    transition: all .1s;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.00);
+}
+
+.content-section {
+    display: flex;
+    margin: 5vh 0;
+    z-index: 1;
+    width: 100%;
+}
+
+.services {
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.launcher-title {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 2.5vh;
+    z-index: 1;
+}
+
+.services>.content-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-container {
+    overflow: hidden;
+    height: 85vh;
+}
+
+.cards-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+    gap: 1vw;
+    margin-left: 10vw;
+}
+
+.game-card {
+    position: relative;
+    transition: .3s;
+    opacity: 0.75;
+}
+
+.card-character {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    margin: 0.5vh;
+}
+
+.card-title {
+    position: absolute;
+    bottom: 3vh;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: none;
+    z-index: 5;
+}
+
+.selected {
+    width: 26vh;
+    height: 65vh;
+    border: solid;
+    border-image-slice: 1;
+    border-width: 0.4vh;
+    border-image-source: linear-gradient(to bottom, #ffffff, rgba(0, 0, 0, 0));
+}
+
+.selected .card-title {
+    display: block;
+}
+
+.game-card.selected {
+    opacity: 1;
+}
+
+.game-card.selected .card-fade,
+.game-card:hover .card-fade {
+    display: block;
+}
+
+.card-fade {
+    position: absolute;
+    top: 0;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    background-size: cover;
+    background-position: center;
+    display: none;
+    margin: 0.5vh;
+}
+
+.game-card.selected .card-darkness,
+.game-card:hover.selected .card-darkness {
+    display: none;
+}
+
+.game-card:hover.selected,
+.game-card.hover.selected {
+    width: 27vh;
+    height: 67.5vh;
+}
+
+.card-darkness {
+    position: absolute;
+    top: 0;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    background-size: cover;
+    background-position: center;
+    margin: 0.5vh;
+}
+
+.play-button {
+    border: 0.4vh solid white;
+    width: -webkit-fill-available;
+    margin: 2vh 0.5vh;
+    height: 5vh;
+    color: white;
+    font-weight: 600;
+    font-size: 3vh;
+    display: none;
+}
+
+.selected .play-button {
+    display: block;
+}
+
+.play-button:hover,
+.game-card.hover .play-button {
+    color: black;
+    background-color: white;
+}
+
+.play-button:active {
+    transform: scale(0.9);
+}
+
+.icons {
+    position: absolute;
+    right: 3%;
+    bottom: 1.5vh;
+    z-index: 1;
+}
+
+.music {
+    width: 3.5vh;
+    filter: invert(1);
+    cursor: pointer;
+    margin-right: 1vh;
+}
+
+.sound {
+    width: 3.5vh;
+    filter: invert(1);
+    cursor: pointer;
+}
+
+svg {
+    cursor: pointer;
+}
+
+.vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.game1 .card-character{background-image: url(images/fnaf1-thumbnail.png);}
+.game2 .card-character{background-image: url(images/fnaf2-thumbnail.png);}
+.game3 .card-character{background-image: url(images/fnaf3-thumbnail.png);}
+.game4 .card-character{background-image: url(images/fnaf4-thumbnail.png);}
+.game5 .card-character{background-image: url(images/fnaf5-thumbnail.png);}
+.game6 .card-character{background-image: url(images/fnaf6-thumbnail.png);}
+.game7 .card-character{background-image: url(images/fnaf7-thumbnail.png);}
+.game8 .card-character{background-image: url(images/fnaf8-thumbnail.png);}
+
+.game1 .card-fade{background: linear-gradient(to top, rgba(66, 60, 54, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game2 .card-fade{background: linear-gradient(to top, rgba(167, 50, 46, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game3 .card-fade{background: linear-gradient(to top, rgba(102, 99, 15, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game4 .card-fade{background: linear-gradient(to top, rgba(104, 5, 5, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game5 .card-fade{background: linear-gradient(to top, rgba(53, 8, 142, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game6 .card-fade{background: linear-gradient(to top, rgba(152, 5, 128, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game7 .card-fade{background: linear-gradient(to top, rgba(8, 85, 15, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game8 .card-fade{background: linear-gradient(to top, rgba(40, 15, 15, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+
+.scale1{width: 24vh;height: 60vh}
+.scale2{width: 22vh;height: 55vh}
+.scale3{width: 20vh;height: 50vh}
+.scale4{width: 18vh;height: 45vh}
+.scale5{width: 16vh;height: 40vh}
+.scale6{width: 14vh;height: 35vh}
+.scale7{width: 12vh;height: 30vh}
+
+.scale1:hover{width: 25vh;height: 62.5vh}
+.scale2:hover{width: 23vh;height: 57.5vh}
+.scale3:hover{width: 21vh;height: 52.5vh}
+.scale4:hover{width: 19vh;height: 47.5vh}
+.scale5:hover{width: 17vh;height: 42.5vh}
+.scale6:hover{width: 15vh;height: 37.5vh}
+.scale7:hover{width: 13vh;height: 32.5vh}
+
+.scale1 .card-darkness, .scale1{background: rgba(0, 0, 0, 0.3);}
+.scale2 .card-darkness, .scale2{background: rgba(0, 0, 0, 0.4);}
+.scale3 .card-darkness, .scale3{background: rgba(0, 0, 0, 0.5);}
+.scale4 .card-darkness, .scale4{background: rgba(0, 0, 0, 0.6);}
+.scale5 .card-darkness, .scale5{background: rgba(0, 0, 0, 0.7);}
+.scale6 .card-darkness, .scale6{background: rgba(0, 0, 0, 0.8);}
+.scale7 .card-darkness, .scale7{background: rgba(0, 0, 0, 0.9);}
+
+.scale1:hover .card-darkness{background: rgba(0, 0, 0, 0.1);}
+.scale2:hover .card-darkness{background: rgba(0, 0, 0, 0.2);}
+.scale3:hover .card-darkness{background: rgba(0, 0, 0, 0.3);}
+.scale4:hover .card-darkness{background: rgba(0, 0, 0, 0.4);}
+.scale5:hover .card-darkness{background: rgba(0, 0, 0, 0.5);}
+.scale6:hover .card-darkness{background: rgba(0, 0, 0, 0.6);}
+.scale7:hover .card-darkness{background: rgba(0, 0, 0, 0.7);}
