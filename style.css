@@ -33,6 +33,16 @@ button {
     background: rgba(255, 255, 255, 0.00);
 }
 
+.menu {
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
 .content-section {
     display: flex;
     margin: 5vh 0;
@@ -40,15 +50,52 @@ button {
     width: 100%;
 }
 
-.services {
+.selection {
     height: auto;
     min-height: 100vh;
     width: 100%;
-    display: flex;
+    display: none;
+    /* flex */
     overflow: hidden;
 }
 
 .launcher-title {
+    z-index: 1;
+}
+
+.loading {
+    width: 20vw;
+    image-rendering: pixelated;
+    animation: rotation 3s infinite linear;
+}
+
+.loading:hover {
+    animation-duration: 4s;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-359deg);
+    }
+}
+
+
+.play-text {
+    position: absolute;
+    height: 20vh;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 7.5vh;
+    z-index: 1;
+}
+
+.launcher-text {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
@@ -56,7 +103,7 @@ button {
     z-index: 1;
 }
 
-.services>.content-section {
+.selection>.content-section {
     display: flex;
     flex-direction: column;
 }
@@ -188,6 +235,12 @@ button {
     z-index: 1;
 }
 
+.launcher-options {
+    width: 3.5vh;
+    cursor: pointer;
+    margin-right: 1vh;
+}
+
 .music {
     width: 3.5vh;
     filter: invert(1);
@@ -203,6 +256,14 @@ button {
 
 svg {
     cursor: pointer;
+}
+
+.launcher-text:hover,
+.loading:hover,
+.launcher-options:hover,
+.music:hover,
+.sound:hover {
+    opacity: 0.85;
 }
 
 .vignette {
@@ -222,15 +283,21 @@ svg {
 .game6 .card-character{background-image: url(images/fnaf6-thumbnail.png);}
 .game7 .card-character{background-image: url(images/fnaf7-thumbnail.png);}
 .game8 .card-character{background-image: url(images/fnaf8-thumbnail.png);}
+.game9 .card-character{background-image: url(images/fnaf9-thumbnail.png);}
+.game10 .card-character{background-image: url(images/fnaf10-thumbnail.png);}
+.game11 .card-character{background-image: url(images/fnaf11-thumbnail.png);}
 
 .game1 .card-fade{background: linear-gradient(to top, rgba(66, 60, 54, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game2 .card-fade{background: linear-gradient(to top, rgba(167, 50, 46, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game2 .card-fade{background: linear-gradient(to top, rgba(164, 55, 30, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
 .game3 .card-fade{background: linear-gradient(to top, rgba(102, 99, 15, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
 .game4 .card-fade{background: linear-gradient(to top, rgba(104, 5, 5, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game5 .card-fade{background: linear-gradient(to top, rgba(53, 8, 142, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game6 .card-fade{background: linear-gradient(to top, rgba(152, 5, 128, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game7 .card-fade{background: linear-gradient(to top, rgba(8, 85, 15, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game5 .card-fade{background: linear-gradient(to top, rgba(8, 85, 15, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game6 .card-fade{background: linear-gradient(to top, rgba(53, 8, 142, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game7 .card-fade{background: linear-gradient(to top, rgba(152, 5, 128, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
 .game8 .card-fade{background: linear-gradient(to top, rgba(40, 15, 15, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game9 .card-fade{background: linear-gradient(to top, rgba(19, 71, 110, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game10 .card-fade{background: linear-gradient(to top, rgba(210, 44, 215, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.game11 .card-fade{background: linear-gradient(to top, rgba(88, 13, 146, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
 
 .scale1{width: 24vh;height: 60vh}
 .scale2{width: 22vh;height: 55vh}
@@ -239,6 +306,9 @@ svg {
 .scale5{width: 16vh;height: 40vh}
 .scale6{width: 14vh;height: 35vh}
 .scale7{width: 12vh;height: 30vh}
+.scale8{width: 10vh;height: 25vh}
+.scale9{width: 8vh;height: 20vh}
+.scale10{width: 6vh;height: 15vh}
 
 .scale1:hover{width: 25vh;height: 62.5vh}
 .scale2:hover{width: 23vh;height: 57.5vh}
@@ -247,6 +317,9 @@ svg {
 .scale5:hover{width: 17vh;height: 42.5vh}
 .scale6:hover{width: 15vh;height: 37.5vh}
 .scale7:hover{width: 13vh;height: 32.5vh}
+.scale8:hover{width: 11vh;height: 27.5vh}
+.scale9:hover{width: 9vh;height: 22.5vh}
+.scale10:hover{width: 7vh;height: 17.5vh}
 
 .scale1 .card-darkness, .scale1{background: rgba(0, 0, 0, 0.3);}
 .scale2 .card-darkness, .scale2{background: rgba(0, 0, 0, 0.4);}
@@ -255,6 +328,9 @@ svg {
 .scale5 .card-darkness, .scale5{background: rgba(0, 0, 0, 0.7);}
 .scale6 .card-darkness, .scale6{background: rgba(0, 0, 0, 0.8);}
 .scale7 .card-darkness, .scale7{background: rgba(0, 0, 0, 0.9);}
+.scale8 .card-darkness, .scale7{background: rgba(0, 0, 0, 0.9);}
+.scale9 .card-darkness, .scale7{background: rgba(0, 0, 0, 0.9);}
+.scale10 .card-darkness, .scale7{background: rgba(0, 0, 0, 0.9);}
 
 .scale1:hover .card-darkness{background: rgba(0, 0, 0, 0.1);}
 .scale2:hover .card-darkness{background: rgba(0, 0, 0, 0.2);}
@@ -263,3 +339,6 @@ svg {
 .scale5:hover .card-darkness{background: rgba(0, 0, 0, 0.5);}
 .scale6:hover .card-darkness{background: rgba(0, 0, 0, 0.6);}
 .scale7:hover .card-darkness{background: rgba(0, 0, 0, 0.7);}
+.scale8:hover .card-darkness{background: rgba(0, 0, 0, 0.7);}
+.scale9:hover .card-darkness{background: rgba(0, 0, 0, 0.7);}
+.scale10:hover .card-darkness{background: rgba(0, 0, 0, 0.7);}

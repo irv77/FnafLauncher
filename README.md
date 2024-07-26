@@ -8,6 +8,7 @@
 <hr>
 
  ## Versions
+  __v1.1.0__ - Added a home screen, new game options, launchers and more!<br>
  __v1.0.0__ - Main code with future updates planned!
 
  <hr>
@@ -19,10 +20,10 @@
 
 - [ ] __Fix logo change display bug!!__
 - [ ] Add Credits screen
-- [ ] Add a Home screen?
-- [ ] Optimize js
-- [ ] Implement cookies for remembering
-- [ ] Better/more sound design
+- [x] Add a Home screen
+- [ ] Optimize js?
+- [x] Implement cookies for remembering
+- [x] Better/more sound design
 - [ ] Add the loading screens
 - [ ] Add mobile support
 </details>
