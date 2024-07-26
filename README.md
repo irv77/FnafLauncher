@@ -8,6 +8,7 @@
 <hr>
 
  ## Versions
+   __v1.1.1__ - Image changes<br>
   __v1.1.0__ - Added a home screen, new game options, launchers and more!<br>
  __v1.0.0__ - Main code with future updates planned!
 
