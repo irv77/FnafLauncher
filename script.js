@@ -45,17 +45,17 @@ const steamlinks = [
     'steam://run/2287520'
 ]
 const htmllinks = [
-    'web/fnaf1/',
-    'web/fnaf2/',
-    'web/fnaf3/',
-    'web/fnaf4/',
-    'web/fnafw/',
-    'web/fnafsl/',
-    'web/fnafps/',
-    'web/fnafucn/',
-    'web/fnafhw1/',
-    'web/fnafsb/',
-    'web/fnafhw2/'
+    'https://irv77.github.io/hd_fnaf/1/',
+    'https://irv77.github.io/hd_fnaf/2/',
+    'https://irv77.github.io/hd_fnaf/3/',
+    'https://irv77.github.io/hd_fnaf/4/',
+    'https://irv77.github.io/hd_fnaf/w/',
+    "javascript:alert('Sorry! We have not added Sister Location to web browser yet...');",
+    'https://irv77.github.io/hd_fnaf/ps/',
+    'https://irv77.github.io/hd_fnaf/ucn/',
+    "javascript:alert('Sorry! There is not Help Wanted 1 in web browser...');",
+    "javascript:alert('Sorry! There is not Security Breach in web browser...');",
+    "javascript:alert('Sorry! There is not Help Wanted 2 in web browser...');"
 ]
 
 if (!launcherSHO) { launcherSHO = 'steam'; localStorage.setItem(launcherKey, launcherSHO); }
