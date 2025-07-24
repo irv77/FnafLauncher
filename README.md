@@ -8,6 +8,7 @@
 <hr>
 
  ## Versions
+__v1.2.08__ - Added game code<br>
 __v1.2.0__ - Added load screens, optimized some code, and added fast load games!<br>
 __v1.1.2__ - HTML link changes<br>
 __v1.1.1__ - Image changes<br>
