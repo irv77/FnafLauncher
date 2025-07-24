@@ -10,7 +10,7 @@ html {
 body {
     position: relative;
     background-color: black;
-    background-image: url(images/background.gif), url(images/background.png);
+    background-image: url(assets/images/background.gif), url(assets/images/background.png);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -54,8 +54,7 @@ button {
     height: auto;
     min-height: 100vh;
     width: 100%;
-    display: none;
-    /* flex */
+    display: flex;
     overflow: hidden;
 }
 
@@ -82,7 +81,6 @@ button {
         transform: rotate(-359deg);
     }
 }
-
 
 .play-text {
     position: absolute;
@@ -147,6 +145,10 @@ button {
     transform: translate(-50%, 0);
     display: none;
     z-index: 5;
+}
+
+.card-title img {
+    width: 36vh;
 }
 
 .selected {
@@ -275,29 +277,19 @@ svg {
     pointer-events: none;
 }
 
-.game1 .card-character{background-image: url(images/fnaf1-thumbnail.png);}
-.game2 .card-character{background-image: url(images/fnaf2-thumbnail.png);}
-.game3 .card-character{background-image: url(images/fnaf3-thumbnail.png);}
-.game4 .card-character{background-image: url(images/fnaf4-thumbnail.png);}
-.game5 .card-character{background-image: url(images/fnaf5-thumbnail.png);}
-.game6 .card-character{background-image: url(images/fnaf6-thumbnail.png);}
-.game7 .card-character{background-image: url(images/fnaf7-thumbnail.png);}
-.game8 .card-character{background-image: url(images/fnaf8-thumbnail.png);}
-.game9 .card-character{background-image: url(images/fnaf9-thumbnail.png);}
-.game10 .card-character{background-image: url(images/fnaf10-thumbnail.png);}
-.game11 .card-character{background-image: url(images/fnaf11-thumbnail.png);}
-
-.game1 .card-fade{background: linear-gradient(to top, rgba(66, 60, 54, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game2 .card-fade{background: linear-gradient(to top, rgba(164, 55, 30, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game3 .card-fade{background: linear-gradient(to top, rgba(102, 99, 15, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game4 .card-fade{background: linear-gradient(to top, rgba(104, 5, 5, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game5 .card-fade{background: linear-gradient(to top, rgba(8, 85, 15, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game6 .card-fade{background: linear-gradient(to top, rgba(53, 8, 142, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game7 .card-fade{background: linear-gradient(to top, rgba(152, 5, 128, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game8 .card-fade{background: linear-gradient(to top, rgba(40, 15, 15, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game9 .card-fade{background: linear-gradient(to top, rgba(19, 71, 110, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game10 .card-fade{background: linear-gradient(to top, rgba(210, 44, 215, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
-.game11 .card-fade{background: linear-gradient(to top, rgba(88, 13, 146, 0.8) 0%, rgba(255, 255, 255, 0.00) 40%);}
+.glitch {
+    position: absolute;
+    background-image: url(assets/images/background.gif);
+    background-position: center;
+    background-size: 50vw;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    opacity: 0.75;
+    z-index: -1;
+}
 
 .scale1{width: 24vh;height: 60vh}
 .scale2{width: 22vh;height: 55vh}
@@ -342,3 +334,55 @@ svg {
 .scale8:hover .card-darkness{background: rgba(0, 0, 0, 0.7);}
 .scale9:hover .card-darkness{background: rgba(0, 0, 0, 0.7);}
 .scale10:hover .card-darkness{background: rgba(0, 0, 0, 0.7);}
+
+canvas {
+    display: none;
+    user-select: none;
+}
+
+#title {
+    position: absolute;
+    top: 10vh;
+    left: 5vw;
+    z-index: 1;
+    height: 20vh;
+}
+
+#animatronic {
+    position: absolute;
+    top: -5vh;
+    right: 7vw;
+    height: 120vh;
+}
+
+.loader {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 12vh;
+    z-index: 1;
+    color: white;
+    font-family: monospace;
+    text-align: center;
+    font-weight: lighter;
+    width: 85vw;
+}
+
+.loader h1 {
+    margin: 0;
+    font-size: 5vw;
+}
+
+.loader hr{
+    margin: 0;
+    border: white solid 0.1vw;
+    width: 0%;
+}
+
+.loader h2 {
+    margin: 1vh 0;
+    font-size: 1.4vw;
+}

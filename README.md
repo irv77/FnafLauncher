@@ -1,13 +1,14 @@
 # <img src=".github/assets/logo.png" alt="Launcher Logo" align="right" width="159px"> Five Nights at Freddy's Launcher
  A custom made fnaf launcher of the core games!<br>
- Huge credits to u/Whole-Ad-1768 for concept art and logos!
-
+ Huge credits to u/Whole-Ad-1768 for concept art and logos!<br>
+ And user @genizy for the fast loading html game code!
 
 <img src=".github/assets/launcher.png" alt="Launcher Photo"><br>
 
 <hr>
 
  ## Versions
+__v1.2.0__ - Added load screens, optimized some code, and added fast load games!<br>
 __v1.1.2__ - HTML link changes<br>
 __v1.1.1__ - Image changes<br>
 __v1.1.0__ - Added a home screen, new game options, launchers and more!<br>
@@ -26,7 +27,7 @@ __v1.0.0__ - Main code with future updates planned!
 - [ ] Optimize js?
 - [x] Implement cookies for remembering
 - [x] Better/more sound design
-- [ ] Add the loading screens
+- [x] Add the loading screens
 - [ ] Add mobile support
 </details>
 

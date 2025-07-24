@@ -1,3 +1,57 @@
+let steamlinks = [];
+let htmllinks = [];
+fetch("assets/jsons/games.json").then((response) => response.json()).then((data) => {
+    let tileCount = 0;
+    data.forEach((game) => {
+        let container = document.querySelector(".cards-section");
+        let gameimages = "assets/images/" + game.detail + "/";
+
+        const cardcontainer = document.createElement("div");
+        cardcontainer.className = "game-card game" + tileCount;
+        cardcontainer.addEventListener("click", () => {
+            changeGameSelected(tileCount);
+        });
+
+        const cardcharacter = document.createElement("div");
+        cardcharacter.className = "card-character";
+        cardcharacter.style.backgroundImage = "url(" + gameimages + "thumbnail.png)";
+
+        const cardfade = document.createElement("div");
+        cardfade.className = "card-fade";
+        cardfade.style.background = game.color;
+
+        const carddarkness = document.createElement("div");
+        carddarkness.className = "card-darkness";
+
+        const cardtitlediv = document.createElement("div");
+        cardtitlediv.className = "card-title";
+        const cardtitle = document.createElement("img");
+        cardtitle.src = gameimages + "title.png";
+
+        const playdiv = document.createElement("a");
+        playdiv.addEventListener("click", () => {
+            deactivator();
+        });
+        const playbutton = document.createElement("button");
+        playbutton.className = "play-button";
+        playbutton.role = "button";
+        playbutton.innerText = "Play";
+
+        cardtitlediv.appendChild(cardtitle);
+        playdiv.appendChild(playbutton);
+        cardcontainer.appendChild(cardcharacter);
+        cardcontainer.appendChild(cardfade);
+        cardcontainer.appendChild(carddarkness);
+        cardcontainer.appendChild(cardtitlediv);
+        cardcontainer.appendChild(playdiv);
+        container.appendChild(cardcontainer);
+        steamlinks.push(game.links[0]);
+        htmllinks.push(game.links[1]);
+        tileCount++;
+    });
+});
+
+// -----------------
 let inMenu = true;
 let currentIndex = 0;
 const totalCards = 11;
@@ -16,65 +70,40 @@ let launcherSHO = localStorage.getItem(launcherKey);
 let playMusic = localStorage.getItem(musicKey);
 let playSound = localStorage.getItem(soundKey);
 
-const select = new Audio('sounds/blip.wav');
-const error = new Audio('sounds/error.wav');
-const bm = new Audio('sounds/background.wav');
-const back = new Audio('sounds/back.wav');
+const select = new Audio('assets/sounds/blip.wav');
+const error = new Audio('assets/sounds/error.wav');
+const bm = new Audio('assets/sounds/background.wav');
+const back = new Audio('assets/sounds/back.wav');
 
 bm.volume = 0.75;
 bm.loop = true;
 
-const cardSelector = document.querySelectorAll('.game-card');
-const cardSelectorSource = document.querySelectorAll('.game-card a');
+let cardSelector, cardSelectorSource;
 const menu = document.getElementById("menu");
 const selection = document.getElementById("selection");
 const options = document.querySelector('.launcher-options');
 const musicIcon = document.querySelector('.music');
 const soundIcon = document.querySelector('.sound');
-const steamlinks = [
-    'steam://run/319510',
-    'steam://run/332800',
-    'steam://run/354140',
-    'steam://run/388090',
-    "javascript:alert('Sorry! We have not added a way to launch FNAF World yet...');",
-    'steam://run/506610',
-    'steam://run/738060',
-    'steam://run/871720',
-    'steam://run/732690',
-    'steam://run/747660',
-    'steam://run/2287520'
-]
-const htmllinks = [
-    'https://irv77.github.io/hd_fnaf/1/',
-    'https://irv77.github.io/hd_fnaf/2/',
-    'https://irv77.github.io/hd_fnaf/3/',
-    'https://irv77.github.io/hd_fnaf/4/',
-    'https://irv77.github.io/hd_fnaf/w/',
-    "javascript:alert('Sorry! We have not added Sister Location to web browser yet...');",
-    'https://irv77.github.io/hd_fnaf/ps/',
-    'https://irv77.github.io/hd_fnaf/ucn/',
-    "javascript:alert('Sorry! There is not Help Wanted 1 in web browser...');",
-    "javascript:alert('Sorry! There is not Security Breach in web browser...');",
-    "javascript:alert('Sorry! There is not Help Wanted 2 in web browser...');"
-]
 
 if (!launcherSHO) { launcherSHO = 'steam'; localStorage.setItem(launcherKey, launcherSHO); }
 if (!playMusic) { playMusic = 'true'; localStorage.setItem(musicKey, playMusic); }
 if (!playSound) { playSound = 'true'; localStorage.setItem(soundKey, playSound); }
 
-if (launcherSHO === 'off') { options.src = 'images/icons/launcher-off.svg'; }
-if (launcherSHO === 'html') { options.src = 'images/icons/launcher-html.svg'; }
-if (launcherSHO === 'steam') { options.src = 'images/icons/launcher-steam.svg'; }
-if (playMusic === 'true') { musicIcon.src = 'images/icons/music.svg'; }
-if (playMusic === 'false') { musicIcon.src = 'images/icons/music-off.svg'; }
-if (playSound === 'true') { soundIcon.src = 'images/icons/sound.svg'; }
-if (playSound === 'false') { soundIcon.src = 'images/icons/sound-off.svg'; }
+if (launcherSHO === 'off') { options.src = 'assets/images/icons/launcher-off.svg'; }
+if (launcherSHO === 'html') { options.src = 'assets/images/icons/launcher-html.svg'; }
+if (launcherSHO === 'steam') { options.src = 'assets/images/icons/launcher-steam.svg'; }
+if (playMusic === 'true') { musicIcon.src = 'assets/images/icons/music.svg'; }
+if (playMusic === 'false') { musicIcon.src = 'assets/images/icons/music-off.svg'; }
+if (playSound === 'true') { soundIcon.src = 'assets/images/icons/sound.svg'; }
+if (playSound === 'false') { soundIcon.src = 'assets/images/icons/sound-off.svg'; }
 
 function activator() {
     if (playSound === 'true') { back.currentTime = 0; back.play(); }
     menu.style.display = "none";
     selection.style.display = "flex";
     inMenu = false;
+    cardSelector = document.querySelectorAll('.game-card');
+    cardSelectorSource = document.querySelectorAll('.game-card a');
     setTimeout(function () {
         updateCarousel();
     }, 100);
@@ -131,21 +160,21 @@ function playButtonHover(cancel) {
 }
 
 function launcherOptions() {
-    if (launcherSHO === 'steam') { launcherSHO = 'off'; options.src = 'images/icons/launcher-off.svg'; }
-    else if (launcherSHO === 'off') { launcherSHO = 'html'; options.src = 'images/icons/launcher-html.svg'; }
-    else if (launcherSHO === 'html') { launcherSHO = 'steam'; options.src = 'images/icons/launcher-steam.svg'; }
+    if (launcherSHO === 'steam') { launcherSHO = 'off'; options.src = 'assets/images/icons/launcher-off.svg'; }
+    else if (launcherSHO === 'off') { launcherSHO = 'html'; options.src = 'assets/images/icons/launcher-html.svg'; }
+    else if (launcherSHO === 'html') { launcherSHO = 'steam'; options.src = 'assets/images/icons/launcher-steam.svg'; }
     localStorage.setItem(launcherKey, launcherSHO)
     changeGameSelected(currentIndex);
 }
 
 function musicOption() {
-    if (playMusic === 'true') { playMusic = 'false'; bm.pause(); musicIcon.src = 'images/icons/music-off.svg'; localStorage.setItem(musicKey, playMusic) }
-    else if (playMusic === 'false') { playMusic = 'true'; bm.play(); musicIcon.src = 'images/icons/music.svg'; localStorage.setItem(musicKey, playMusic) }
+    if (playMusic === 'true') { playMusic = 'false'; bm.pause(); musicIcon.src = 'assets/images/icons/music-off.svg'; localStorage.setItem(musicKey, playMusic) }
+    else if (playMusic === 'false') { playMusic = 'true'; bm.play(); musicIcon.src = 'assets/images/icons/music.svg'; localStorage.setItem(musicKey, playMusic) }
 }
 
 function soundOption() {
-    if (playSound === 'true') { playSound = 'false'; soundIcon.src = 'images/icons/sound-off.svg'; localStorage.setItem(soundKey, playSound) }
-    else if (playSound === 'false') { playSound = 'true'; soundIcon.src = 'images/icons/sound.svg'; localStorage.setItem(soundKey, playSound) }
+    if (playSound === 'true') { playSound = 'false'; soundIcon.src = 'assets/images/icons/sound-off.svg'; localStorage.setItem(soundKey, playSound) }
+    else if (playSound === 'false') { playSound = 'true'; soundIcon.src = 'assets/images/icons/sound.svg'; localStorage.setItem(soundKey, playSound) }
 }
 
 function updateCarousel() {
@@ -215,12 +244,3 @@ function changeGameSelected(index) {
     }
     else { hovering = false; }
 }
-
-function loaded() {
-    setTimeout(function () {
-        console.clear();
-    }, 10);
-    updateCarousel();
-}
-
-document.addEventListener('DOMContentLoaded', loaded);
