@@ -19,10 +19,36 @@ fetch("assets/jsons/games.json").then((response) => response.json()).then((data)
     runtimecanvas = "resources/" + gameselected.cch;
     canvaswidth = gameselected.resolution[0];
     canvasheight = gameselected.resolution[1];
+    launch();
+});
+
+// Prevents touchscreen move
+window.addEventListener("scroll", preventMotion, false);
+window.addEventListener("touchmove", preventMotion, false);
+
+function preventMotion(event)
+{
+    window.scrollTo(0, 0);
+    event.preventDefault();
+    event.stopPropagation();
+}
+
+// Fullscreen Key
+const pressedKeys = {};
+document.addEventListener('keydown', event => {
+  pressedKeys[event.key] = true;
+  if (pressedKeys['-'] && pressedKeys['=']) {
+    document.querySelector('canvas').requestFullscreen();
+    delete pressedKeys[event.key];
+  }
+});
+
+document.addEventListener('keyup', (event) => {
+  delete pressedKeys[event.key];
 });
 
 // -----------------
-window.onload = function() {
+function launch() {
 const map = new Map();
 
 function updateProgress(text, percent) {

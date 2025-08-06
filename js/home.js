@@ -5,11 +5,12 @@ fetch("assets/jsons/games.json").then((response) => response.json()).then((data)
     data.forEach((game) => {
         let container = document.querySelector(".cards-section");
         let gameimages = "assets/images/" + game.detail + "/";
+        let tile = tileCount
 
         const cardcontainer = document.createElement("div");
         cardcontainer.className = "game-card game" + tileCount;
         cardcontainer.addEventListener("click", () => {
-            changeGameSelected(tileCount);
+            changeGameSelected(tile);
         });
 
         const cardcharacter = document.createElement("div");
